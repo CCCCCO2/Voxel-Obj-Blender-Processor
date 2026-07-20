@@ -3,7 +3,7 @@
 
 class MT_Panel(bpy.types.Panel):
     """材质处理UI面板，包括重命名材质名以保证符合导入游戏引擎规范，处理模型的.001材质，以及合并Tiling应用到UV缩放后的重复材质等"""
-    bl_label = "Material Tool"
+    bl_label = "Material Tools"
     bl_idname = "MT_Panel"
     bl_space_type = 'VIEW_3D'
     bl_region_type = 'UI'

@@ -1,11 +1,31 @@
-# Voxel-Obj-Blender-Processor
+# MagicaVoxel-Blender-Pipeline
 
-这是一个 Blender 工具，主要用于清理和优化从 MagicaVoxel 导出的 .obj 文件。通过自动化网格清理、顶点合并、UV 展开和材质设置等步骤，它能让体素模型更好地适配 Unity 等游戏开发环境
+这是一个 专为 MagicaVoxel -> Blender -> 游戏引擎 工作流程设计的 Blender Extension。它集成了一系列针对 MagicaVoxel 导出模型的处理工具，可自动完成网格清理、UV 处理、材质整理、贴图处理以及资源导出等操作，帮助模型快速进入 Unity 等游戏开发流程。
 
+目前插件包含以下功能模块：
+
+- Voxel Cleanup
+	- 清理 MagicaVoxel 导出的 OBJ 模型
+	- 有限融并（Limited Dissolve）
+	- 合并重合顶点
+	- 删除松散几何
+	- 清除法线数据
+	- 平面着色
+	- 自动设置原点
+- UV Tools
+	- 对指定集合执行 Cube Projection
+	- 自动应用材质
+	- 将 Mapping 节点的 UV Scale 烘焙到模型 UV
+- Material Tools
+	- 根据贴图自动重命名材质
+	- 修复重复材质
+Export Tools
+	- 按 Collection 批量导出 FBX
+	- 支持自定义输出目录
 
 ## 安装方法
 
-**版本兼容性警告**：本插件有两个版本，请根据您的 Blender 版本选择正确的安装方式
+**版本兼容性警告**：本项目主要维护 Blender 4.2+ Extension，旧的脚本仅包含 Voxel Cleanup 功能。如要使用完全功能请使用 Blender 4.2 及以上版本
 
 #### Blender 4.2 及以上版本
 
@@ -18,6 +38,8 @@
 #### Blender 4.2以下版本
 
 请使用传统 .py 脚本文件
+
+**不完全功能警告**：传统脚本仅包含 Voxel Cleanup 功能，暂时没有更新维护的计划
 
 1. 下载脚本
 2. 在 Blender 中打开“文本编辑器”视图：
