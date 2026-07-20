@@ -19,7 +19,7 @@
 - Material Tools
 	- 根据贴图自动重命名材质
 	- 修复重复材质
-Export Tools
+- Export Tools
 	- 按 Collection 批量导出 FBX
 	- 支持自定义输出目录
 
