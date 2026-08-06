@@ -36,3 +36,10 @@ class Properties(bpy.types.PropertyGroup):
         description="FBX 导出的目标目录",
         subtype='DIR_PATH'
     )
+
+    # Camera Occlusion Group Tools 的属性
+    parent_object_name: StringProperty(
+        name="父对象名称",
+        description="新建空父对象的名称，留空时使用 Root",
+        default="Root"
+    )

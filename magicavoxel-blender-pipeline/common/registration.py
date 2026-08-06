@@ -14,6 +14,9 @@ from ..apply_mapping_scale_to_uv.panel import AMSTU_Panel
 from ..export_tools.operator import ET_ExportCollectionsToFBX
 from ..export_tools.panel import ET_Panel
 
+from ..camera_occlusion_group_tools.operator import COGT_ParentSelectedToEmpty
+from ..camera_occlusion_group_tools.panel import COGT_Panel
+
 
 
 classes = (
@@ -31,7 +34,10 @@ classes = (
     MT_Panel,
     
     ET_ExportCollectionsToFBX,
-    ET_Panel
+    ET_Panel,
+
+    COGT_ParentSelectedToEmpty,
+    COGT_Panel
 )
 
 def register():

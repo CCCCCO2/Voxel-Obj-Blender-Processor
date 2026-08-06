@@ -28,19 +28,34 @@ class ET_ExportCollectionsToFBX(Operator):
 
         try:
 
-            for collection in bpy.data.collections:
+            # 只处理当前视图层中、场景根集合直属的可见集合。
+            # 子集合的对象会合并到父集合的 FBX 中，不再单独生成文件。
+            top_level_collections = [
+                layer_collection.collection
+                for layer_collection in context.view_layer.layer_collection.children
+                if layer_collection.visible_get()
+            ]
+
+            for collection in top_level_collections:
 
                 bpy.ops.object.select_all(action='DESELECT')
 
                 mesh_objects = [
-                    obj for obj in collection.objects
+                    obj for obj in collection.all_objects
                     if obj.type == 'MESH'
+                    and obj.visible_get(view_layer=context.view_layer)
                 ]
 
                 if not mesh_objects:
                     continue
 
-                for obj in mesh_objects:
+                export_objects = [
+                    obj for obj in collection.all_objects
+                    if obj.type in {'MESH', 'EMPTY'}
+                    and obj.visible_get(view_layer=context.view_layer)
+                ]
+
+                for obj in export_objects:
                     obj.select_set(True)
 
                 context.view_layer.objects.active = mesh_objects[0]
@@ -54,7 +69,8 @@ class ET_ExportCollectionsToFBX(Operator):
 
                 bpy.ops.export_scene.fbx(
                     filepath=filepath,
-                    use_selection=True
+                    use_selection=True,
+                    object_types={'MESH', 'EMPTY'}
                 )
 
                 export_count += 1
@@ -73,4 +89,4 @@ class ET_ExportCollectionsToFBX(Operator):
             f"共导出 {export_count} 个集合"
         )
 
-        return {'导出完成'}
+        return {'FINISHED'}
