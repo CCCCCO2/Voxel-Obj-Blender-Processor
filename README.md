@@ -18,7 +18,7 @@
 	- 将 Mapping 节点的 UV Scale 烘焙到模型 UV
 - Material Tools
 	- 根据贴图自动重命名材质
-	- 修复重复材质
+	- 比较材质设置、节点参数与连接、贴图引用，仅合并内容一致的同名后缀材质，保留存在差异或无法确认的材质
 - Export Tools
 	- 按 Collection 批量导出 FBX
 	- 支持自定义输出目录

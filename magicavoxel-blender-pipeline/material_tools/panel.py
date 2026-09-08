@@ -20,4 +20,5 @@ class MT_Panel(bpy.types.Panel):
 
         box_fdm = layout.box()
         box_fdm.label(text="修复材质")
+        box_fdm.label(text="仅合并参数与贴图引用一致的材质")
         box_fdm.operator("mvbp.fix_duplicate_materials",icon='BRUSH_DATA')
