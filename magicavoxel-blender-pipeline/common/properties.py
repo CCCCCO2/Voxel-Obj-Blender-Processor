@@ -1,4 +1,4 @@
-﻿import bpy
+import bpy
 from bpy.props import StringProperty
 
 class Properties(bpy.types.PropertyGroup):
@@ -37,9 +37,9 @@ class Properties(bpy.types.PropertyGroup):
         subtype='DIR_PATH'
     )
 
-    # Camera Occlusion Group Tools 的属性
+    # Object Group Tools 的属性
     parent_object_name: StringProperty(
-        name="父对象名称",
-        description="新建空父对象的名称，留空时使用 Root",
+        name="组名称",
+        description="新建组的名称，用于命名组根节点；留空时使用 Root",
         default="Root"
     )

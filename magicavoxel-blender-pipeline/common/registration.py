@@ -1,4 +1,4 @@
-﻿import bpy
+import bpy
 
 from ..common.properties import Properties
 
@@ -14,8 +14,11 @@ from ..apply_mapping_scale_to_uv.panel import AMSTU_Panel
 from ..export_tools.operator import ET_ExportCollectionsToFBX
 from ..export_tools.panel import ET_Panel
 
-from ..camera_occlusion_group_tools.operator import COGT_ParentSelectedToEmpty
-from ..camera_occlusion_group_tools.panel import COGT_Panel
+from ..object_group_tools.operator import (
+    OGT_CreateGroup, OGT_AddToGroup, OGT_RemoveFromGroup,
+    OGT_SelectGroup, OGT_HideGroups, OGT_ShowGroups, OGT_DissolveGroup,
+)
+from ..object_group_tools.panel import OGT_Panel
 
 
 
@@ -36,8 +39,14 @@ classes = (
     ET_ExportCollectionsToFBX,
     ET_Panel,
 
-    COGT_ParentSelectedToEmpty,
-    COGT_Panel
+    OGT_CreateGroup,
+    OGT_AddToGroup,
+    OGT_RemoveFromGroup,
+    OGT_SelectGroup,
+    OGT_HideGroups,
+    OGT_ShowGroups,
+    OGT_DissolveGroup,
+    OGT_Panel
 )
 
 def register():
